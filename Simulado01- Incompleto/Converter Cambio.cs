@@ -30,7 +30,10 @@ namespace CambioSenai
             this.conversoes = retornarDados.listarConversao();
             carregarComboMoeda();
             listar();
+            txtBase.Enabled = false;
+            txtValorConvertido.Enabled = false;
 
+          
 
         }
 
@@ -45,7 +48,7 @@ namespace CambioSenai
             for (int i = 0; i < conversoes.Count; i++)
             {
                 cbMoeda.Items.Add(conversoes[i].toString());
-
+                
                 
             }    
         }
@@ -162,6 +165,19 @@ namespace CambioSenai
         private void button6_Click(object sender, EventArgs e)
         {
             listar();
+        }
+
+        private void cbMoeda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            listar();
+            conversoes = retornarDados.listarConversao();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmRegistro frm = new frmRegistro();
+            frm.ShowDialog();
+            conversoes = retornarDados.listarConversao();
         }
     }
     }

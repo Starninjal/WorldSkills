@@ -43,3 +43,18 @@ C:\Users\johnn_vozzi\Desktop\CambioSenaii\obj\Debug\CambioSenai.csproj.GenerateR
 C:\Users\johnn_vozzi\Desktop\CambioSenaii\obj\Debug\CambioSenai.csproj.CoreCompileInputs.cache
 C:\Users\johnn_vozzi\Desktop\CambioSenaii\obj\Debug\CambioSenai.exe
 C:\Users\johnn_vozzi\Desktop\CambioSenaii\obj\Debug\CambioSenai.pdb
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.csproj.AssemblyReference.cache
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.csproj.SuggestedBindingRedirects.cache
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.CadastroUsuario.resources
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.frmConverter.resources
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.Form1.resources
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.mostrarNome.resources
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.Properties.Resources.resources
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.frmRegistro.resources
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.csproj.GenerateResource.cache
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.csproj.CoreCompileInputs.cache
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.exe
+C:\worldskills\WorldSkills\Simulado01- Incompleto\obj\Debug\CambioSenai.pdb
+C:\worldskills\WorldSkills\Simulado01- Incompleto\bin\Debug\CambioSenai.exe.config
+C:\worldskills\WorldSkills\Simulado01- Incompleto\bin\Debug\CambioSenai.exe
+C:\worldskills\WorldSkills\Simulado01- Incompleto\bin\Debug\CambioSenai.pdb

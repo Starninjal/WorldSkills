@@ -18,7 +18,7 @@ namespace CambioSenai
 
 
 
-        private List<Conversao> conversoes;
+        private List<Conversao> conversoes = new List<Conversao>();
 
         private Double baseConvert;
 
@@ -32,7 +32,7 @@ namespace CambioSenai
         public frmRegistro()
         {
             InitializeComponent();
-            this.conversoes = new List<Conversao>();
+            
 
 
 
@@ -54,10 +54,13 @@ namespace CambioSenai
            
 
             conversao = new Conversao(moeda, baseConvert);
-            conversoes.Add(conversao);
-            retornarDados.adicionarConversao(conversoes);
-            frmConverter frm = new frmConverter();
-            frm.ShowDialog();
+            for (int i = 0; i < conversoes.Count; i++)
+            {
+                MessageBox.Show(conversoes[i].Moeda);
+            }
+            
+            retornarDados.adicionarConversao(conversao);
+            
             MessageBox.Show("Inserido com sucesso!");
 
         }

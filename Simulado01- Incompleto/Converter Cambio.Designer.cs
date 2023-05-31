@@ -41,8 +41,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.cbMoeda = new System.Windows.Forms.ComboBox();
             this.button5 = new System.Windows.Forms.Button();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.button6 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -73,6 +71,7 @@
             this.button2.TabIndex = 3;
             this.button2.Text = "Novo";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // label2
             // 
@@ -138,7 +137,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(533, 370);
+            this.button4.Location = new System.Drawing.Point(522, 370);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(175, 39);
@@ -154,6 +153,7 @@
             this.cbMoeda.Name = "cbMoeda";
             this.cbMoeda.Size = new System.Drawing.Size(297, 24);
             this.cbMoeda.TabIndex = 12;
+            this.cbMoeda.SelectedIndexChanged += new System.EventHandler(this.cbMoeda_SelectedIndexChanged);
             // 
             // button5
             // 
@@ -166,31 +166,11 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(584, 179);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 22);
-            this.maskedTextBox1.TabIndex = 14;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(332, 285);
-            this.button6.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(175, 39);
-            this.button6.TabIndex = 15;
-            this.button6.Text = "Calcular";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
             // frmConverter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.cbMoeda);
             this.Controls.Add(this.button4);
@@ -206,6 +186,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmConverter";
+            this.Text = "Converter Câmbio";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,7 +207,5 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.ComboBox cbMoeda;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.Button button6;
     }
 }

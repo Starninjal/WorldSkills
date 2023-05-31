@@ -23,8 +23,9 @@ namespace CambioSenai
             InitializeComponent();
             this.frm = new frmRegistro();
             
+            
         }
-
+        
        
         private void conversãoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -33,7 +34,8 @@ namespace CambioSenai
 
         private void converterValorToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-
+            frmConverter frm = new frmConverter();
+            frm.ShowDialog();
         }
 
         private void sairToolStripMenuItem_Click(object sender, EventArgs e)

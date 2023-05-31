@@ -10,9 +10,9 @@ namespace CambioSenai
     {
        public static List<Conversao> Conversoes { get; set; } = new List<Conversao>();
 
-       public static void adicionarConversao(List<Conversao> conversoes)
+       public static void adicionarConversao(Conversao conversoes)
         {
-            Conversoes = conversoes;
+            Conversoes.Add(conversoes);
             
         }
 
