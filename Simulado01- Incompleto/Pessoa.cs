@@ -41,7 +41,7 @@ namespace CambioSenai
 
         public String toString() // precisa disso se não ele pega o endereço de memória então logo você precisa listar com o {nomeObjeto}[i].{nomeAtributo}
         {
-            return this.nome;
+            return this.nome;asdsad;asdasd
         }
     }
 }
