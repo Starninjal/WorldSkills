@@ -24,6 +24,8 @@ namespace CambioSenai
 
         private retornarDados dados;
 
+        private frmConverter converter = new frmConverter();
+
 
 
 
@@ -194,6 +196,8 @@ namespace CambioSenai
 
 
         }
+
+    
     }
 }
     

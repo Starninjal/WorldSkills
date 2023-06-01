@@ -21,6 +21,8 @@ namespace CambioSenai
 
         private int idTexto = 0;
 
+        private int i = 0;
+
         private retornarDados dados;
     
 
@@ -28,7 +30,7 @@ namespace CambioSenai
         {
             InitializeComponent();
             this.conversoes = retornarDados.listarConversao();
-            carregarComboMoeda();
+          
             listar();
             txtBase.Enabled = false;
             txtValorConvertido.Enabled = false;
@@ -177,8 +179,36 @@ namespace CambioSenai
         {
             frmRegistro frm = new frmRegistro();
             frm.ShowDialog();
-            conversoes = retornarDados.listarConversao();
+         
+            
+        }
+
+        public void recarregarCombo(List<Conversao> conversoes) 
+        {
+
+
+        }
+
+
+
+        
+
+        private void frmConverter_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void frmConverter_Activated(object sender, EventArgs e)
+        {
+            cbMoeda.Items.Clear();
+                carregarComboMoeda();
+                i = 1;
+
+        }
+
+        private void frmConverter_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }
-

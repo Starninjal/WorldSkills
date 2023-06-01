@@ -81,6 +81,7 @@
       <DependentUpon>Registro de Base de Conversão.cs</DependentUpon>
     </Compile>
     <Compile Include="retornarDados.cs" />
+    <Compile Include="ServiceBase.cs" />
     <EmbeddedResource Include="CadastroUsuario.resx">
       <DependentUpon>CadastroUsuario.cs</DependentUpon>
     </EmbeddedResource>
