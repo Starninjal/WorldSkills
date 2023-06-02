@@ -22,6 +22,21 @@ namespace CambioSenai
                 {
                     throw new Exception("A base de conversao não pode ser negativa");
                 }
+
+                if(isBaseInvalida && isDescricaoInvalida)
+                {
+                    throw new Exception("A base de conversão não pode ser negativa e a descrição não pode ultrapassar 30 caracteres. Tente novamente!");
+
+                }
+
+                if(isDescricaoInvalida.Equals(""))
+                {
+                    throw new Exception("Campo descrição vazio, insira algo e tente novamente!");
+                }
+                if(conversao.BaseConversao <= 0)
+                {
+                    throw new Exception("Campo base não pode estar vazia, insira seu conteúdo e tente novamente!");
+                }
                 
             } else
             {

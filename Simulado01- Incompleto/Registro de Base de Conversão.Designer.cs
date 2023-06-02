@@ -145,7 +145,6 @@
             this.txtMoeda.Name = "txtMoeda";
             this.txtMoeda.Size = new System.Drawing.Size(212, 20);
             this.txtMoeda.TabIndex = 12;
-            this.txtMoeda.Text = "R$";
             // 
             // lblMoeda
             // 

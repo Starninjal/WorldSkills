@@ -201,8 +201,8 @@ namespace CambioSenai
         private void frmConverter_Activated(object sender, EventArgs e)
         {
             cbMoeda.Items.Clear();
-                carregarComboMoeda();
-                i = 1;
+            carregarComboMoeda();
+                
 
         }
 

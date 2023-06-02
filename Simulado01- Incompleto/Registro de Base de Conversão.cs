@@ -15,14 +15,13 @@ namespace CambioSenai
     {
         private Conversao conversao;
 
-
-
-
         private List<Conversao> conversoes = new List<Conversao>();
 
         private Double baseConvert;
 
         private retornarDados dados;
+
+        private ServiceBase service = new ServiceBase();
 
         private frmConverter converter = new frmConverter();
 
@@ -34,36 +33,34 @@ namespace CambioSenai
         public frmRegistro()
         {
             InitializeComponent();
-            
-
-
-
         }
 
  
 
         private void btnSalvar_Click(object sender, EventArgs e)
         {
+            
 
-
-            String moeda = txtMoeda.Text;
-
-
-
-            baseConvert = Convert.ToDouble(maskBase.Text);
-           
-
-           
-
-            conversao = new Conversao(moeda, baseConvert);
-            for (int i = 0; i < conversoes.Count; i++)
+            try
             {
-                MessageBox.Show(conversoes[i].Moeda);
+                String moeda = txtMoeda.Text;
+
+                baseConvert = Convert.ToDouble(maskBase.Text);
+
+                conversao = new Conversao(moeda, baseConvert);
+
+
+                service.validarBase(conversao);
+
+                retornarDados.adicionarConversao(conversao);
+
+                MessageBox.Show("Inserido com sucesso!");
+
+            } catch(Exception e2)
+            {
+                MessageBox.Show("Houve um erro ao inserir a base. Motivo: " + e2.Message);
             }
             
-            retornarDados.adicionarConversao(conversao);
-            
-            MessageBox.Show("Inserido com sucesso!");
 
         }
 
@@ -73,7 +70,7 @@ namespace CambioSenai
         private void btnNovo_Click(object sender, EventArgs e)
         {
             txtMoeda.Text = "";
-            txtBaseConversao.Text = null;
+            txtBaseConversao.Text = "";
         }
 
         private void btnPrimeiro_Click(object sender, EventArgs e)
@@ -154,8 +151,11 @@ namespace CambioSenai
 
         private void maskBase_Leave(object sender, EventArgs e)
         {
+            /*
             try
             {
+
+                
                 if (Convert.ToDouble(maskBase.Text.ToString()) > 10)
                 {
                     if (maskBase.Text.Contains("."))
@@ -177,7 +177,7 @@ namespace CambioSenai
                 {
                     if (maskBase.Text.Contains("."))
                     {
-
+                        String [] mask = maskBase.Text.Split('.');
                     } else
                     {
                         maskBase.Mask = "0.00";
@@ -194,7 +194,7 @@ namespace CambioSenai
                 MessageBox.Show("O valor não pode ser nulo!");
             }
 
-
+    */
         }
 
     
