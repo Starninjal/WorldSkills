@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,8 +18,11 @@ namespace Simulado01__Sem_Consulta_
 
         int valor = 0;
 
+        private int idTexto = 0;
+
         private Boolean update;
         private Conversao conversao;
+        private StreamWriter writer;
 
         private ListMoeda list = new ListMoeda();
         public frmRegistroMoeda()
@@ -54,19 +58,23 @@ namespace Simulado01__Sem_Consulta_
             {
                 String nomeMoeda = textBox1.Text;
                 Double valorMoeda = Double.Parse(textBox2.Text);
-                conversao = new Conversao(nomeMoeda, valorMoeda);
-                alterar();
-
-                /*
-                if(update == true)
+                MessageBox.Show(valorMoeda.ToString("F"));
+                DialogResult dialogResult = MessageBox.Show("Você tem certeza que deseja salvar?", "Confirmar Inserir", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Os valores já existem, deseja alterar?");
-                } 
-                
-                */
-                
-               
-                
+                    conversao = new Conversao(nomeMoeda, valorMoeda);
+                    alterar();
+
+                    /*
+                    if(update == true)
+                    {
+                        MessageBox.Show("Os valores já existem, deseja alterar?");
+                    } 
+
+                    */
+
+
+
                     if (conversao.nomeMoeda.Length > 30)
                     {
                         throw new Exception("O nome da moeda não pode ultrapassar os 30 caracteres. Tente novamente!");
@@ -82,16 +90,25 @@ namespace Simulado01__Sem_Consulta_
                         throw new Exception("O valor da moeda não pode ser nulo!");
                     }
 
-                    conversoes = ListMoeda.add(conversao);
+                    writer = new StreamWriter(@"C:\papsta\BackupDeInsercoesConversoes.txt", true, Encoding.Default);
 
-                    for (int i = 0; i < conversoes.Count; i++)
+
+                    if (idTexto == 0)
                     {
-                        MessageBox.Show(conversoes[i].toString());
+                        writer.Write("Relatório de Inserções de Conversões \n");
+                        writer.Write("");
+                        idTexto++;
                     }
-                
-               
+                    String textoArquivo = "";
+                    textoArquivo += "Nome Moeda: " + conversao.nomeMoeda + " | Base de Conversão: " + Convert.ToDouble(conversao.valorMoeda);
+                    writer.WriteLine(textoArquivo);
+                    writer.Dispose();
 
-               
+                    conversoes = ListMoeda.add(conversao);
+                } else
+                {
+                    MessageBox.Show("Você cancelou a ação!");
+                } 
             } catch(Exception e2)
             {
                 MessageBox.Show("Ocorreu um erro. Motivo: " + e2.Message);
@@ -115,7 +132,7 @@ namespace Simulado01__Sem_Consulta_
 
                 if (item.toString().Equals(conversoes[i].nomeMoeda)) {
                     textBox1.Text = conversoes[i].nomeMoeda;
-                    textBox2.Text = conversoes[i].valorMoeda.ToString();
+                    textBox2.Text = conversoes[i].valorMoeda.ToString("C");
                     break;
                 }
             }
@@ -137,7 +154,7 @@ namespace Simulado01__Sem_Consulta_
                         if (textBox1.Text.Equals(conversoes[i].nomeMoeda))
                         {
                             textBox1.Text = conversoes[i - 1].toString();
-                            textBox2.Text = conversoes[i - 1].valorMoeda.ToString();
+                            textBox2.Text = conversoes[i - 1].valorMoeda.ToString("C");
                             break;
                         }
                     }
@@ -168,9 +185,8 @@ namespace Simulado01__Sem_Consulta_
                         {
                             
 
-                            textBox1.Text = conversoes[i +1].toString();
-                            textBox2.Text = conversoes[i + 1].valorMoeda.ToString();
-                            MessageBox.Show(conversoes[i + 1].toString());
+                            textBox1.Text = conversoes[i + 1].toString();
+                            textBox2.Text = conversoes[i + 1].valorMoeda.ToString("C");
                             break;
                         }
                        
@@ -201,6 +217,12 @@ namespace Simulado01__Sem_Consulta_
                 }
             }
             
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
+            textBox2.Text = "";
         }
     }
 }

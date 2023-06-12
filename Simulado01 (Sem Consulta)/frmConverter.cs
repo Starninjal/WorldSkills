@@ -81,7 +81,7 @@ namespace Simulado01__Sem_Consulta_
 
                 if (cbMoeda.Text.Equals(conversoes[i].toString()))
                 {
-                    writer = new StreamWriter(@"D:\papsta\BackupConversoes.txt", true, Encoding.Default);
+                    writer = new StreamWriter(@"C:\papsta\BackupConversoes.txt", true, Encoding.Default);
 
 
                     if (idTexto == 0)
@@ -108,6 +108,13 @@ namespace Simulado01__Sem_Consulta_
         {
             frmRegistroMoeda frm = new frmRegistroMoeda();
             frm.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            txtValorBase.Text = "";
+            txtValorConversao.Text = "";
+            txtValorConvertido.Text = "";
         }
     }
 }
