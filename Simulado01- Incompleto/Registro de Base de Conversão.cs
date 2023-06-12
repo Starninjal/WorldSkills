@@ -49,10 +49,23 @@ namespace CambioSenai
 
                 conversao = new Conversao(moeda, baseConvert);
 
+                DialogResult dialogResult = MessageBox.Show("Confirmação", "Você tem certeza que deseja salvar?", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    service.validarBase(conversao);
 
-                service.validarBase(conversao);
+                    retornarDados.adicionarConversao(conversao);
 
-                retornarDados.adicionarConversao(conversao);
+                    this.conversoes = retornarDados.listarConversao();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    
+                }
+
+               
+
+               
 
                 MessageBox.Show("Inserido com sucesso!");
 
@@ -70,14 +83,15 @@ namespace CambioSenai
         private void btnNovo_Click(object sender, EventArgs e)
         {
             txtMoeda.Text = "";
-            txtBaseConversao.Text = "";
+            maskBase.Text = "";
         }
 
         private void btnPrimeiro_Click(object sender, EventArgs e)
         {
+            MessageBox.Show(conversoes[0].ToString());
             txtMoeda.Text = conversoes[0].toString();
 
-            txtBaseConversao.Text = conversoes[0].BaseConversao.ToString();
+            maskBase.Text = conversoes[0].BaseConversao.ToString();
 
         }
 
@@ -85,26 +99,43 @@ namespace CambioSenai
         {
             txtMoeda.Text = conversoes[conversoes.Count - 1].toString();
 
-            txtBaseConversao.Text = conversoes[conversoes.Count - 1].BaseConversao.ToString();
+            maskBase.Text = conversoes[conversoes.Count - 1].BaseConversao.ToString();
         }
 
         private void btnProximo_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < conversoes.Count; i++)
             {
-                if (conversoes[i].Moeda.Equals(txtMoeda.Text) && conversoes[i].BaseConversao == Convert.ToDouble(txtBaseConversao.Text))
+                try
                 {
-
-                    if (conversoes[i].toString().Equals(txtMoeda.Text))
+                    if (conversoes[i].Moeda.Equals(txtMoeda.Text) && conversoes[i].BaseConversao == Convert.ToDouble(maskBase.Text))
                     {
-                        txtMoeda.Text = conversoes[i + 1].toString();
-                        txtBaseConversao.Text = conversoes[i + 1].BaseConversao.ToString();
-                        i++;
+
+                        if (conversoes[i].toString().Equals(txtMoeda.Text))
+                        {
+                            int ultimoValor = conversoes.Count - 1;
+                            if (conversoes[ultimoValor] == conversoes[i])
+                            {
+                                throw new Exception("Último valor já estabelecido");
+                            }
+                            else
+                            {
+                                txtMoeda.Text = conversoes[i + 1].toString();
+                                maskBase.Text = conversoes[i + 1].BaseConversao.ToString();
+                                i++;
+                            }
+
+
+
+                        }
+                        
 
                     }
-
-
+                } catch(Exception e2)
+                {
+                    MessageBox.Show("Ocorreu um erro. Motivo: " + e2.Message);
                 }
+                
             }
         }
 
@@ -117,19 +148,35 @@ namespace CambioSenai
         {
             for (int i = 0; i < conversoes.Count; i++)
             {
-                if (conversoes[i].Equals(txtMoeda.Text))
-                {
 
-                    if (conversoes[i].Equals(txtMoeda.Text))
+                try
+                {
+                    if (conversoes[i].Moeda.Equals(txtMoeda.Text))
                     {
-                        txtMoeda.Text = conversoes[i - 1].ToString();
-                        txtBaseConversao.Text = conversoes[i - 1].BaseConversao.ToString();
-                        i--;
+
+                        if (conversoes[i].Moeda.Equals(txtMoeda.Text))
+                        {
+                            if (conversoes[0].Moeda.Equals(txtMoeda.Text))
+                            {
+                                throw new Exception("Não há valor anterior");
+                            }
+                            else
+                            {
+                                txtMoeda.Text = conversoes[i - 1].toString();
+                                maskBase.Text = conversoes[i - 1].BaseConversao.ToString();
+                                i--;
+                            }
+
+
+                        }
+
 
                     }
-
-
+                } catch(Exception e2)
+                {
+                    MessageBox.Show("Ocorreu um erro ao passar ao anterior. Motivo:" + e2.Message);
                 }
+               
             }
         }
 

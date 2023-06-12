@@ -77,7 +77,7 @@ namespace CambioSenai
 
                     if (conversao.ValorConvertido > 0 && txtValorConverter != null)
                     {
-                        txtValorConvertido.Text = conversao.ValorConvertido.ToString();
+                        txtValorConvertido.Text = conversao.ValorConvertido.ToString("C");
                     }
 
                     listarArquivo();
@@ -110,13 +110,15 @@ namespace CambioSenai
                 if(cbMoeda.SelectedItem.ToString() == conversoes[i].toString())
                 {
                     conversoes.Remove(conversoes[i]);
+                 
+                    cbMoeda.Items.Clear();
                     
                 } 
                     
                     
                 
                 
-                MessageBox.Show(conversoes[i].toString());
+               
                 cbMoeda.Items.Remove(cbMoeda.SelectedItem);
                 break;
                 
@@ -158,7 +160,7 @@ namespace CambioSenai
             {
                 if (cbMoeda.Text.Equals(conversoes[i].Moeda))
                 {
-                    txtBase.Text = conversoes[i].BaseConversao.ToString();
+                    txtBase.Text = conversoes[i].BaseConversao.ToString("C");
                 }
                
             }
