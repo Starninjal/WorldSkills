@@ -35,7 +35,7 @@ namespace Simulado_02__com_consulta_
                 }
                 else
                 {
-                    sql = new SqlConnection(@"Data Source=KERNELOS-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
+                    sql = new SqlConnection(@"Data Source=SN-386958\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
                     sql.Open();
                     SqlCommand cmd = new SqlCommand("INSERT INTO tipos VALUES (@descricao)", sql);
                     cmd.Parameters.AddWithValue("@descricao", tipo.Descricao);

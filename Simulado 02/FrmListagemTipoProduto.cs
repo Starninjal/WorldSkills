@@ -35,31 +35,25 @@ namespace Simulado_02__com_consulta_
       
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            int IdDelete = Convert.ToInt32(dtTipo.Rows[e.RowIndex].Cells[2].Value.ToString());
 
+            if (dtTipo.Columns[e.ColumnIndex].Name == "Remover")
+            {
+                DialogResult dialogResult = MessageBox.Show("Confirmar Remoção", "Você realmente deseja remover a linha selecionada", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    removeData(IdDelete);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    //do something else
+                }
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                sql.Open();
-                SqlCommand cmd = new SqlCommand("SELECT id, descricao from tipos", sql);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-                dtTipo.DataSource = dt;
-                MessageBox.Show("Dados Carregados com Sucesso!");
-
-                sql.Close();
-                
-            }
-            catch (Exception e2)
-            {
-                MessageBox.Show("Ocorreu um erro ao listar. Motivo: " + e2.Message);
-            }
-            
-
-
+            displayData();
         }
 
         private List<Tipo> listar()
@@ -98,13 +92,73 @@ namespace Simulado_02__com_consulta_
 
         public void con()
         {
-            sql = new SqlConnection(@"Data Source=KERNELOS-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
+            sql = new SqlConnection(@"Data Source=SN-386958\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
         }
 
         public void add()
         {
             retornarDados.add(listar());
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Editar.Text = "haha";
+        }
+
+        private void dtTipo_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            int IdDelete = Convert.ToInt32(dtTipo.Rows[e.RowIndex].Cells[2].Value.ToString());
+            DialogResult dialogResult = MessageBox.Show("Confirmar Remoção", "Você realmente deseja remover a linha selecionada", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                removeData(IdDelete);
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //do something else
+            }
+        }
+
+        public void removeData(int idDelete)
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand cmd = new SqlCommand("DELETE tipos where id = @id", sql);
+                cmd.Parameters.AddWithValue("@id", idDelete);
+                cmd.ExecuteNonQuery();
+                sql.Close();
+            } catch(Exception e)
+            {
+                MessageBox.Show("Impossível de deletar registro um ou mais produtos vinculados a ele.");
+            }
+
+
+        }
+
+        public void displayData()
+        {
+            try
+            {
+                sql.Open();
+                SqlCommand cmd = new SqlCommand("SELECT id, descricao from tipos", sql);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                dtTipo.DataSource = dt;
+                MessageBox.Show("Dados Carregados com Sucesso!");
+
+                sql.Close();
+
+            }
+            catch (Exception e2)
+            {
+                MessageBox.Show("Ocorreu um erro ao listar. Motivo: " + e2.Message);
+            }
+        }
+
+        
     }
 
     

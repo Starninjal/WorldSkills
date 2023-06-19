@@ -63,9 +63,9 @@ namespace Simulado_02__com_consulta_
                 produto = new Produto(descricao, tipo);
                 listagemProduto.add();
                 sql.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO produtos values (@descricao, @fk_tipo)", sql);
+                SqlCommand cmd = new SqlCommand("INSERT INTO produtos values (@descricao, @id_tipo)", sql);
                 cmd.Parameters.AddWithValue("@descricao", produto.Descricao);
-                cmd.Parameters.AddWithValue("@fk_tipo", produto.TipoProduto.Id);
+                cmd.Parameters.AddWithValue("@id_tipo", produto.TipoProduto.Id);
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Produto inserido com sucesso!");
             } catch(Exception e2)
@@ -79,7 +79,7 @@ namespace Simulado_02__com_consulta_
 
         public void con()
         {
-            sql = new SqlConnection(@"Data Source=KERNELOS-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
+            sql = new SqlConnection(@"Data Source=SN-386958\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
         }
     }
 }

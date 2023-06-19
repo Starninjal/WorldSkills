@@ -36,7 +36,7 @@ namespace Simulado_02__com_consulta_
             try
             {
                 sql.Open();
-                SqlCommand cmd = new SqlCommand("SELECT p.id as idProduto, t.id as idTipo, p.descricao as ProdutoDescricao, t.descricao as TipoDescricao FROM produtos p, tipos t WHERE p.fk_tipo = t.id", sql);
+                SqlCommand cmd = new SqlCommand("SELECT p.id as idProduto, t.id as idTipo, p.descricao as ProdutoDescricao, t.descricao as TipoDescricao FROM produtos p, tipos t WHERE p.id_tipo = t.id", sql);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -56,7 +56,7 @@ namespace Simulado_02__com_consulta_
             try
             {
                 sql.Open();
-                SqlCommand cmd = new SqlCommand("SELECT p.id, p.descricao, t.id, t.descricao FROM produtos p, tipos t WHERE p.fk_tipo = t.id", sql);
+                SqlCommand cmd = new SqlCommand("SELECT p.id, p.descricao, t.id, t.descricao FROM produtos p, tipos t WHERE p.id_tipo = t.id", sql);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -81,7 +81,7 @@ namespace Simulado_02__com_consulta_
             {
                 sql.Open();
                
-                SqlCommand cmd = new SqlCommand("SELECT p.id, p.descricao, t.id, t.descricao FROM produtos p, tipos t WHERE p.fk_tipo = t.id", sql);
+                SqlCommand cmd = new SqlCommand("SELECT p.id, p.descricao, t.id, t.descricao FROM produtos p, tipos t WHERE p.id_tipo = t.id", sql);
                 using (SqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -114,7 +114,7 @@ namespace Simulado_02__com_consulta_
 
         public void con()
         {
-            sql = new SqlConnection(@"Data Source=KERNELOS-PC\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
+            sql = new SqlConnection(@"Data Source=SN-386958\SQLEXPRESS;Initial Catalog=master;Integrated Security=True");
         }
 
         public void add()

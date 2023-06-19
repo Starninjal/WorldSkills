@@ -44,24 +44,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 31);
+            this.label1.Location = new System.Drawing.Point(16, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
+            this.label1.Size = new System.Drawing.Size(69, 16);
             this.label1.TabIndex = 0;
             this.label1.Text = "Descrição";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 57);
+            this.textBox1.Location = new System.Drawing.Point(20, 70);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(4);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(497, 20);
+            this.textBox1.Size = new System.Drawing.Size(661, 22);
             this.textBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(522, 57);
+            this.button1.Location = new System.Drawing.Point(696, 70);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(62, 20);
+            this.button1.Size = new System.Drawing.Size(83, 25);
             this.button1.TabIndex = 2;
             this.button1.Text = "Listar";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,9 +72,10 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(522, 12);
+            this.button2.Location = new System.Drawing.Point(696, 15);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(62, 20);
+            this.button2.Size = new System.Drawing.Size(83, 25);
             this.button2.TabIndex = 3;
             this.button2.Text = "Novo";
             this.button2.UseVisualStyleBackColor = true;
@@ -80,9 +84,10 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 95);
+            this.label2.Location = new System.Drawing.Point(16, 117);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.Size = new System.Drawing.Size(140, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Produtos Encontrados";
             // 
@@ -93,38 +98,47 @@
             this.dtTipo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Remover});
-            this.dtTipo.Location = new System.Drawing.Point(15, 134);
+            this.dtTipo.Location = new System.Drawing.Point(20, 165);
+            this.dtTipo.Margin = new System.Windows.Forms.Padding(4);
             this.dtTipo.Name = "dtTipo";
-            this.dtTipo.Size = new System.Drawing.Size(558, 123);
+            this.dtTipo.RowHeadersWidth = 51;
+            this.dtTipo.Size = new System.Drawing.Size(744, 151);
             this.dtTipo.TabIndex = 5;
             this.dtTipo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dtTipo.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dtTipo_RowHeaderMouseClick);
             // 
             // Editar
             // 
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
             this.Editar.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Editar.HeaderText = "Ações";
+            this.Editar.HeaderText = "Remover";
+            this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
-            this.Editar.Text = "Editar";
+            this.Editar.Text = "Remover";
+            this.Editar.Width = 125;
             // 
             // Remover
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
             this.Remover.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Remover.HeaderText = "Ações";
+            this.Remover.HeaderText = "Alterar";
+            this.Remover.MinimumWidth = 6;
             this.Remover.Name = "Remover";
+            this.Remover.Text = "Alterar";
+            this.Remover.Width = 125;
             // 
             // FrmListagemTipoProduto
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(596, 269);
+            this.ClientSize = new System.Drawing.Size(795, 331);
             this.Controls.Add(this.dtTipo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmListagemTipoProduto";
             this.Text = "Cadastro de Tipos de Produtos";
             ((System.ComponentModel.ISupportInitialize)(this.dtTipo)).EndInit();

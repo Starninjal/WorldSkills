@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{189C92AA-8A2A-45F6-B1DF-D5C6A98EC2FA}</ProjectGuid>
+    <ProjectGuid>{9AC1264D-A66C-4F1A-993E-B5CACACA1BCE}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Simulado_02__com_consulta_</RootNamespace>
-    <AssemblyName>Simulado 02 %28com consulta%29</AssemblyName>
+    <RootNamespace>Simulado01__Sem_Consulta_</RootNamespace>
+    <AssemblyName>Simulado01 %28Sem Consulta%29</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,17 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,55 +46,46 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmCadastroProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCadastroProduto.Designer.cs">
-      <DependentUpon>FrmCadastroProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmListagemProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmListagemProduto.Designer.cs">
-      <DependentUpon>FrmListagemProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmListagemTipoProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmListagemTipoProduto.Designer.cs">
-      <DependentUpon>FrmListagemTipoProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmCadastroTipoProduto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmCadastroTipoProduto.Designer.cs">
-      <DependentUpon>FrmCadastroTipoProduto.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Conversao.cs" />
+    <Compile Include="FrmPrincipal.cs" />
     <Compile Include="FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Produto.cs" />
+    <Compile Include="frmConverter.cs" />
+    <Compile Include="frmConverter.Designer.cs">
+      <DependentUpon>frmConverter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEncarar.cs" />
+    <Compile Include="frmEncarar.Designer.cs">
+      <DependentUpon>frmEncarar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegistroMoeda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegistroMoeda.Designer.cs">
+      <DependentUpon>frmRegistroMoeda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListMoeda.cs" />
+    <Compile Include="Principal.cs" />
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="retornarDados.cs" />
-    <Compile Include="Tipo.cs" />
-    <EmbeddedResource Include="FrmCadastroProduto.resx">
-      <DependentUpon>FrmCadastroProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmListagemProduto.resx">
-      <DependentUpon>FrmListagemProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmListagemTipoProduto.resx">
-      <DependentUpon>FrmListagemTipoProduto.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmCadastroTipoProduto.resx">
-      <DependentUpon>FrmCadastroTipoProduto.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConverter.resx">
+      <DependentUpon>frmConverter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEncarar.resx">
+      <DependentUpon>frmEncarar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegistroMoeda.resx">
+      <DependentUpon>frmRegistroMoeda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -114,7 +96,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -127,9 +108,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
