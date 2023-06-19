@@ -52,7 +52,7 @@ namespace Simulado_02__com_consulta_
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
+         {
             displayData();
         }
 
